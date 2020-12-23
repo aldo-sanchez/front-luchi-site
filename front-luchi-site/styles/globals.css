@@ -5,9 +5,16 @@
   --accent-color: #10B981;
 */
 :root {
-  --main-bg-color-rgb: 22, 21,21;
+  /* dark grey bg */
+  /* --main-bg-color-rgb: 22, 21,21; */
+  /* dark grey with blue */
+  --main-bg-color-rgb: 55, 65, 81;
+
   --main-text-color-rgb: 208, 205, 205;
-  --accent-color-rgb: 16, 185, 129;
+  /* blue */
+  /* --accent-color-rgb: 147, 197, 253; */
+  /* rosado palido */
+  --accent-color-rgb: 249, 168, 212;
   --main-bg-color: rgb(var(--main-bg-color-rgb));
   --main-text-color: rgb(var(--main-text-color-rgb));
   --accent-color: rgb(var(--accent-color-rgb));
@@ -91,10 +98,17 @@ nav > ul {
 
 nav > ul > li {
   text-transform: capitalize;
+  padding: .25em;
   color: rgba(var(--main-text-color-rgb), .65)
 }
 
 nav > ul > li.active {
   text-transform: capitalize;
   color: rgba(var(--main-text-color-rgb), 1)
+}
+
+nav > ul > li.home {
+  text-transform: capitalize;
+  color: var(--main-bg-color);
+  background-color: var(--accent-color);
 }

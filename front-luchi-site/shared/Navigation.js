@@ -1,11 +1,14 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import clsx from 'clsx'
 
 const routes = [
+  { name: 'luisana rivas', path: '/' },
   { name: 'about', path: '/about' },
   { name: 'news', path: '/news' },
   { name: 'gallery', path: '/gallery' },
-  { name: 'blog', path: 'blog' },
+  { name: 'blog', path: '/blog' },
+  { name: 'contact', path: '/contact' },
 ]
 
 const Navigation = () => {
@@ -14,10 +17,16 @@ const Navigation = () => {
     <nav>
       <ul>
         {routes.map((route) => {
+          console.log(route.path === '/')
           return (
             <li
               key={route.name}
-              className={route.path === router.pathname ? 'active': ''}
+              className={clsx(
+                {
+                  active: route.path === router.pathname,
+                  home: route.path === '/',
+                }
+              )}
             >
               <Link href={route.path}>
                 <a>{route.name}</a>
