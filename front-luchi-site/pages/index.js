@@ -1,16 +1,19 @@
-import Head from 'next/head'
+import Head from "next/head";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Head>
         <title>Luisana</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1>Luisana Rivas</h1>
-        <h2>mezzo-soprano</h2>
-      </main>
-    </div>
-  )
+      <section className="title">
+        <img src="https://res.cloudinary.com/dnx34ea7g/image/upload/v1608702162/large_LR_Final_7_c34f4d0446.jpg" />
+        <header>
+          <h1>Luisana Rivas</h1>
+          <h2>mezzo-soprano</h2>
+        </header>
+      </section>
+    </>
+  );
 }

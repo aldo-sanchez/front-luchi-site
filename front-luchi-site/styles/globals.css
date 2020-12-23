@@ -71,6 +71,11 @@ main > section > h1 {
   color: var(--accent-color)
 }
 
+main > section > h2 {
+  font-size: 3em;
+  color: var(--accent-color)
+}
+
 .container > footer {
   grid-area: footer;
 }
@@ -81,8 +86,6 @@ footer svg {
 
 .container > nav {
   grid-area: nav;
-  position: sticky;
-  top: 0;
   display: grid;
   background-color: var(--main-bg-color);
   grid-template-columns: 1fr minmax(0, 900px) 1fr;
@@ -112,4 +115,31 @@ nav > ul > li.home {
   text-transform: capitalize;
   color: var(--main-bg-color);
   background-color: var(--accent-color);
+}
+
+.title > header > h1, h2 {
+  color: var(--accent-color)
+}
+
+.title {
+  position: relative;
+  /* height: 100%; */
+}
+
+.title > header {
+  position: absolute;
+  bottom: 50%;
+  left: -30%;
+}
+.title > header > h1 {
+  margin: 0;
+  font-size: 5em;
+  color: var(--accent-color);
+  text-shadow: 0 1px 0 black;
+}
+.title > header > h2 {
+  margin: 0;
+  font-size: 2.5em;
+  color: var(--accent-color);
+  text-shadow: 0 1px 0 black;
 }

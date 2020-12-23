@@ -17,7 +17,6 @@ const Navigation = () => {
     <nav>
       <ul>
         {routes.map((route) => {
-          console.log(route.path === '/')
           return (
             <li
               key={route.name}
