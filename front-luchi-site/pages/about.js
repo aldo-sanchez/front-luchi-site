@@ -1,5 +1,4 @@
 import ReactMarkdown from 'react-markdown'
-import Navigation from '../shared/Navigation'
 
 export async function getStaticProps() {
   const url = new URL('/abouts', process.env.CMS_HOST).href
@@ -20,8 +19,8 @@ export async function getStaticProps() {
 const About = (props) => {
   return (
     <section>
-      <h1>Welcome to the about machine</h1>
-      <ReactMarkdown>
+      <h1>Je suis</h1>
+      <ReactMarkdown className="content">
         {props.data.description}
       </ReactMarkdown>
     </section>

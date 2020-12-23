@@ -1,11 +1,34 @@
-html,
+/*
+  Hex colors
+  --main-bg-color: #161515;
+  --main-text-color: #d0cdcc;
+  --accent-color: #10B981;
+*/
+:root {
+  --main-bg-color-rgb: 22, 21,21;
+  --main-text-color-rgb: 208, 205, 205;
+  --accent-color-rgb: 16, 185, 129;
+  --main-bg-color: rgb(var(--main-bg-color-rgb));
+  --main-text-color: rgb(var(--main-text-color-rgb));
+  --accent-color: rgb(var(--accent-color-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding: 0;
   margin: 0;
   /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, */
   font-family: 'Fira Sans', serif;
-  background-color: #161515;
-  color: #d0cdcc;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
 }
 
 .container {
@@ -20,19 +43,14 @@ body {
   justify-content: center;
 }
 
-nav {
-  grid-area: nav;
-  position: sticky;
-  top: 0;
-  background-color: red;
-}
-
-main {
+.container > main {
   grid-area: main;
   display: grid;
   grid-template-columns: 1fr minmax(0, 800px) 1fr;
   grid-template-rows: 1fr;
-  /* font-size: 16px; */
+}
+
+.content {
   line-height: 1.75em;
 }
 
@@ -40,33 +58,43 @@ main > section {
   grid-area: 1 / 2 / 1 / 3;
 }
 
-footer {
+main > section > h1 {
+  font-size: 5em;
+  color: var(--accent-color)
+}
+
+.container > footer {
   grid-area: footer;
-  /* font-size: 0.9em; */
 }
 
 footer svg {
   height: 1em;
 }
 
-nav ul {
+.container > nav {
+  grid-area: nav;
+  position: sticky;
+  top: 0;
+  display: grid;
+  background-color: var(--main-bg-color);
+  grid-template-columns: 1fr minmax(0, 900px) 1fr;
+}
+
+nav > ul {
   list-style: none;
+  grid-area: 1 / 2 / 1 / 3;
   display: flex;
   justify-content: space-between;
-  max-width: 600px;
   margin: 0;
-  padding: 0;
+  padding: 1em;
 }
 
-nav ul li {
+nav > ul > li {
   text-transform: capitalize;
+  color: rgba(var(--main-text-color-rgb), .65)
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
+nav > ul > li.active {
+  text-transform: capitalize;
+  color: rgba(var(--main-text-color-rgb), 1)
 }

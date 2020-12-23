@@ -1,29 +1,30 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
-const Navigation = ({ }) => {
+const routes = [
+  { name: 'about', path: '/about' },
+  { name: 'news', path: '/news' },
+  { name: 'gallery', path: '/gallery' },
+  { name: 'blog', path: 'blog' },
+]
+
+const Navigation = () => {
+  const router = useRouter()
   return (
     <nav>
       <ul>
-        <li>
-          <Link href="/about">
-            <a>about</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/news">
-            <a>news</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/gallery">
-            <a>gallery</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="blog">
-            <a>blog</a>
-          </Link>
-        </li>
+        {routes.map((route) => {
+          return (
+            <li
+              key={route.name}
+              className={route.path === router.pathname ? 'active': ''}
+            >
+              <Link href={route.path}>
+                <a>{route.name}</a>
+              </Link>
+            </li>
+          )
+        })}
       </ul>
     </nav>
   )

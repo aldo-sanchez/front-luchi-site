@@ -1,6 +1,8 @@
 const News = () => {
   return (
-    <h1>Welcome to the News machine</h1>
+    <section>
+      <h1>Welcome to the News machine</h1>
+    </section>
   )
 }
 

@@ -1,6 +1,8 @@
 const Blog = () => {
   return (
-    <h1>Welcome to the blog machine</h1>
+    <section>
+      <h1>Welcome to the blog machine</h1>
+    </section>
   )
 }
 
