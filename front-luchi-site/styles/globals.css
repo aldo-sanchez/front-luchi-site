@@ -32,20 +32,19 @@ a {
 body {
   padding: 0;
   margin: 0;
-  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, */
-  font-family: 'Fira Sans', serif;
-  background-color: var(--main-bg-color);
-  color: var(--main-text-color);
+  font-family: 'Fira Sans', sans-serif;
   font-size: 18px;
+  color: var(--main-text-color);
+  background-color: var(--main-bg-color);
 }
 
 .container {
   height: 100vh;
   display: grid;
   grid-template-areas:
-    "nav"
-    "main"
-    "footer";
+  "nav"
+  "main"
+  "footer";
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
   justify-content: center;
@@ -78,16 +77,26 @@ main > section > h2 {
 
 .container > footer {
   grid-area: footer;
+  font-size: .85em;
+  display: flex;
+  justify-content: center;
+  padding: .5em;
+  align-items: center;
 }
 
 footer svg {
   height: 1em;
 }
 
+footer > .copyright {
+  padding-right: .5em;
+  border-right: 1px solid;
+  margin-right: .5em;
+}
+
 .container > nav {
   grid-area: nav;
   display: grid;
-  background-color: var(--main-bg-color);
   grid-template-columns: 1fr minmax(0, 900px) 1fr;
 }
 
@@ -97,7 +106,7 @@ nav > ul {
   display: flex;
   justify-content: space-between;
   margin: 0;
-  padding: 1em;
+  padding: .75em;
 }
 
 nav > ul > li {
@@ -123,7 +132,6 @@ nav > ul > li.home {
 
 .title {
   position: relative;
-  /* height: 100%; */
 }
 
 .title > header {
@@ -137,6 +145,7 @@ nav > ul > li.home {
   color: var(--accent-color);
   text-shadow: 0 1px 0 black;
 }
+
 .title > header > h2 {
   margin: 0;
   font-size: 2.5em;

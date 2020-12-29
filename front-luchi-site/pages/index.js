@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Staff from "../shared/Staff";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
           <h2>mezzo-soprano</h2>
         </header>
       </section>
+      <Staff />
     </>
   );
 }
