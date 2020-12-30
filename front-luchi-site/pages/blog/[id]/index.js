@@ -12,7 +12,7 @@ export async function getStaticProps(context) {
       updatedAt: data.updated_at,
       content: data.content,
       meta: data.meta,
-    }, // will be passed to the page component as props
+    },
   }
 }
 
@@ -45,7 +45,6 @@ const BlogPost = ({ title, publishedAt, updatedAt, content, meta, ...rest}) => {
             )
           }
           case 'blog.video': {
-            console.log(component.video_link)
             return (
               <ReactMarkdown key={component.id} className="content" allowDangerousHtml>
                 {component.video_link}

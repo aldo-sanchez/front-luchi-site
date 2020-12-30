@@ -12,9 +12,9 @@
 
   --main-text-color-rgb: 208, 205, 205;
   /* blue */
-  /* --accent-color-rgb: 147, 197, 253; */
+  --accent-color-rgb: 147, 197, 253;
   /* rosado palido */
-  --accent-color-rgb: 249, 168, 212;
+  /* --accent-color-rgb: 249, 168, 212; */
   --main-bg-color: rgb(var(--main-bg-color-rgb));
   --main-text-color: rgb(var(--main-text-color-rgb));
   --accent-color: rgb(var(--accent-color-rgb));
@@ -127,29 +127,49 @@ nav > ul > li.home {
   background-color: var(--accent-color);
 }
 
-.title > header > h1, h2 {
+section.title > header > h1, h2 {
   color: var(--accent-color)
 }
 
-.title {
+section.title {
   position: relative;
 }
 
-.title > header {
+section.title > header {
   position: absolute;
   bottom: 50%;
   left: -30%;
 }
-.title > header > h1 {
+
+section.title > header > h1 {
   margin: 0;
   font-size: 5em;
   color: var(--accent-color);
   text-shadow: 0 1px 0 black;
 }
 
-.title > header > h2 {
+section.title > header > h2 {
   margin: 0;
   font-size: 2.5em;
   color: var(--accent-color);
   text-shadow: 0 1px 0 black;
+}
+
+section.blog > .blog-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+section.blog > .blog-list > .post {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+section.blog > .blog-list .post .title {
+  margin: 0;
+  text-decoration: solid underline var(--accent-color) 3px;
+  font-size: 1.5em;
 }
