@@ -1,17 +1,17 @@
 import ReactMarkdown from 'react-markdown'
 
 export async function getStaticProps() {
-  const url = new URL('/abouts', process.env.CMS_HOST).href
+  const url = new URL('/about', process.env.CMS_HOST).href
   const res = await fetch(url)
   const data = await res.json()
-  if (!data || data.length === 0) {
+  if (!data) {
     return {
       notFound: true
     }
   }
   return {
     props: {
-      data: data[0]
+      data: data
     },
   }
 }

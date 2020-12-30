@@ -86,6 +86,7 @@ main > section > h2 {
 
 footer svg {
   height: 1em;
+  color: var(--accent-color);
 }
 
 footer > .copyright {
