@@ -11,6 +11,12 @@ const routes = [
   { name: 'contact', path: '/contact' },
 ]
 
+const isActive = (a, b) => {
+  const cleanA = a.split('/').filter(p => p !== '')
+  const cleanB = b.split('/').filter(p => p !== '')
+  return cleanA[0] === cleanB[0]
+}
+
 const Navigation = () => {
   const router = useRouter()
   return (
@@ -22,7 +28,7 @@ const Navigation = () => {
               key={route.name}
               className={clsx(
                 {
-                  active: route.path === router.pathname,
+                  active: isActive(route.path, router.pathname),
                   home: route.path === '/',
                 }
               )}
