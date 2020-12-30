@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown/with-html"
-import { utcToLocale } from "../../../helpers"
+import { getReadingTimes, utcToLocale } from "../../../helpers"
 
 export async function getStaticProps(context) {
   const url = new URL(`/blog-posts/${context.params.id}`, process.env.CMS_HOST).href
@@ -12,6 +12,7 @@ export async function getStaticProps(context) {
       updatedAt: data.updated_at,
       content: data.content,
       meta: data.meta,
+      readingTime: getReadingTimes(data.content)
     },
   }
 }
@@ -26,51 +27,59 @@ export async function getStaticPaths() {
   }
 }
 
-const BlogPost = ({ title, publishedAt, updatedAt, content, meta, ...rest}) => {
+const BlogPost = ({ title, publishedAt, updatedAt, content, meta, readingTime, ...rest}) => {
   const publishedDate = utcToLocale(publishedAt)
   const updateDate = utcToLocale(updatedAt)
-  console.log('content', content)
   return (
-    <section>
-      <h2>{title}</h2>
-      <span>written {publishedDate}</span>
-      {publishedDate !== updateDate && <span>last updated {updateDate}</span>}
-      {content.map(component => {
-        switch (component.__component) {
-          case 'blog.content': {
-            return (
-              <ReactMarkdown key={component.id} className="content">
-                {component.content}
-              </ReactMarkdown>
-            )
+    <section className="blog-post">
+      <header>
+        <h2>{title}</h2>
+        <span className="meta">
+          <small>{readingTime.text}</small>
+          <small>Written: <time dateTime={publishedAt}>{publishedDate}</time>
+          {publishedDate !== updateDate && (<> | Updated: <time>{updateDate}</time></>)}
+          </small>
+        </span>
+      </header>
+      <hr />
+      <article>
+        {content.map(component => {
+          switch (component.__component) {
+            case 'blog.content': {
+              return (
+                <ReactMarkdown key={component.id} className="content" linkTarget="_blank" allowDangerousHtml>
+                  {component.content}
+                </ReactMarkdown>
+              )
+            }
+            case 'blog.video': {
+              return (
+                <ReactMarkdown key={component.id} className="video" allowDangerousHtml>
+                  {component.video_link}
+                </ReactMarkdown>
+              )
+            }
+            case 'blog.quote': {
+              return (
+                <blockquote key={component.id}>
+                  <p>{component.quote}</p>
+                  {component.author && <p>{component.author}</p>}
+                </blockquote>
+              )
+            }
+            case 'blog.image': {
+              return (
+                <div>
+                  <img key={component.id} src={component.image.formats.medium.url} />
+                  {component.caption && <figcaption>{component.caption}</figcaption>}
+                </div>
+              )
+            }
+            default:
+              return undefined
           }
-          case 'blog.video': {
-            return (
-              <ReactMarkdown key={component.id} className="content" allowDangerousHtml>
-                {component.video_link}
-              </ReactMarkdown>
-            )
-          }
-          case 'blog.quote': {
-            return (
-              <blockquote key={component.id}>
-                <p>{component.quote}</p>
-                <p>{component.author}</p>
-              </blockquote>
-            )
-          }
-          case 'blog.image': {
-            return (
-              <div>
-                <img key={component.id} src={component.image.formats.large.url} />
-                <p>{component.caption}</p>
-              </div>
-            )
-          }
-          default:
-            return undefined
-        }
-      })}
+        })}
+      </article>
     </section>
   )
 }
