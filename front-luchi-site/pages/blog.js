@@ -11,7 +11,7 @@ export async function getStaticProps() {
   }
   return {
     props: {
-      data: data,
+      data,
     },
   }
 }
@@ -19,7 +19,7 @@ export async function getStaticProps() {
 const MetaBlogPost = ({ title, published_at, id }) => {
   return (
     <li>
-      <Link href={`/${id}`}>
+      <Link href={`/blog/${id}`}>
         <a>
           <span>{published_at}</span>
           <span>{title}</span>
