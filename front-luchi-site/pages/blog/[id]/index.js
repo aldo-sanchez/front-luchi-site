@@ -14,6 +14,7 @@ export async function getStaticProps(context) {
       meta: data.meta,
       readingTime: getReadingTimes(data.content)
     },
+    revalidate: 1,
   }
 }
 
