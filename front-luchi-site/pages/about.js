@@ -21,7 +21,7 @@ const About = (props) => {
     <section>
       <h1>Je suis</h1>
       <ReactMarkdown className="content">
-        {props.data.description}
+        {props.data.content}
       </ReactMarkdown>
     </section>
   )
