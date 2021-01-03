@@ -15,7 +15,7 @@ export default function Home() {
           <h2>mezzo-soprano</h2>
         </header>
       </section>
-      <Staff />
+      {/* <Staff /> */}
     </>
   );
 }
