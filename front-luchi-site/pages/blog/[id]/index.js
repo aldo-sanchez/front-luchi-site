@@ -35,7 +35,7 @@ const BlogPost = ({ title, publishedAt, updatedAt, content, meta, readingTime, .
       <header>
         <h2>{title}</h2>
         <span className="meta">
-          <small>{readingTime.text}</small>
+          <small>{readingTime?.text}</small>
           <small>Written: <time dateTime={publishedAt}>{publishedDate}</time>
           {publishedDate !== updateDate && (<> | Updated: <time>{updateDate}</time></>)}
           </small>
@@ -43,7 +43,7 @@ const BlogPost = ({ title, publishedAt, updatedAt, content, meta, readingTime, .
       </header>
       <hr />
       <article>
-        {content.map(component => {
+        {content?.map(component => {
           switch (component.__component) {
             case 'blog.content': {
               return (
