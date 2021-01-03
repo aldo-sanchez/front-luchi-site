@@ -12,9 +12,9 @@
 
   --main-text-color-rgb: 208, 205, 205;
   /* blue */
-  --accent-color-rgb: 147, 197, 253;
+  /* --accent-color-rgb: 147, 197, 253; */
   /* rosado palido */
-  /* --accent-color-rgb: 249, 168, 212; */
+  --accent-color-rgb: 249, 168, 212;
   --main-bg-color: rgb(var(--main-bg-color-rgb));
   --main-text-color: rgb(var(--main-text-color-rgb));
   --accent-color: rgb(var(--accent-color-rgb));
@@ -78,7 +78,7 @@ main > section h2 {
 
 .container > footer {
   grid-area: footer;
-  font-size: .85em;
+  /* font-size: .85em; */
   display: flex;
   justify-content: center;
   padding: .5em;
