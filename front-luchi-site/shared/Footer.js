@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer>
       <small className="copyright">&copy; {new Date().getFullYear()}</small>
-      <span>
+      <span className="social-media">
         <small>
           <a href="https://instagram.com" target="_blank">
             <Instagram />

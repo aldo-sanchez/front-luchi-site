@@ -90,8 +90,12 @@ footer svg {
   color: var(--accent-color);
 }
 
+footer > .social-media > small {
+ padding: 0 .5em;
+}
+
 footer > .copyright {
-  padding-right: .5em;
+  padding-right: 1em;
   border-right: 1px solid;
   margin-right: .5em;
 }
@@ -112,18 +116,17 @@ nav > ul {
 }
 
 nav > ul > li {
-  text-transform: capitalize;
-  padding: .25em;
+  padding: 1em;
   color: rgba(var(--main-text-color-rgb), .65)
 }
 
 nav > ul > li.active {
-  text-transform: capitalize;
   color: rgba(var(--main-text-color-rgb), 1)
 }
 
 nav > ul > li.home {
-  text-transform: capitalize;
+  font-family: 'Major Mono Display', monospace;
+  font-weight: bold;
   color: var(--main-bg-color);
   background-color: var(--accent-color);
 }

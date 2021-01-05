@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { utcToLocale, getReadingTimes } from '../helpers'
 
-// woop
 export async function getStaticProps() {
   const url = new URL("/blog-posts", process.env.CMS_HOST).href
   const res = await fetch(url)

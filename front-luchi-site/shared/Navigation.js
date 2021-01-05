@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import clsx from 'clsx'
 
 const routes = [
-  { name: 'luisana rivas', path: '/' },
+  { name: 'LMR luisana rivas', path: '/' },
   { name: 'about', path: '/about' },
   { name: 'news', path: '/news' },
   { name: 'gallery', path: '/gallery' },
